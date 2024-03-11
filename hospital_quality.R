@@ -34,10 +34,10 @@ lowest_heart_failure <- select_df %>% group_by(State) %>%
   arrange(State, Hospital.30.Day.Death..Mortality..Rates.from.Pneumonia) %>% slice(1)
 
 lowest_heart_attack <- select_df %>% group_by(State) %>%
-  arrange(State, select_df$Hospital.30.Day.Death..Mortality..Rates.from.Heart.Attack) %>% slice(1)
+  arrange(State, Hospital.30.Day.Death..Mortality..Rates.from.Heart.Attack) %>% slice(1)
 
 lowest_pneumonia <- select_df %>% group_by(State) %>%
-  arrange(State, select_df$Hospital.30.Day.Death..Mortality..Rates.from.Pneumonia) %>% slice(1)
+  arrange(State, Hospital.30.Day.Death..Mortality..Rates.from.Pneumonia) %>% slice(1)
 
 
 best <- function(state, outcome) {
