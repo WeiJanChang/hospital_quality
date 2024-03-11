@@ -39,3 +39,21 @@ lowest_heart_attack <- select_df %>% group_by(State) %>%
 lowest_pneumonia <- select_df %>% group_by(State) %>%
   arrange(State, select_df$Hospital.30.Day.Death..Mortality..Rates.from.Pneumonia) %>% slice(1)
 
+
+best <- function(state, outcome) {
+  data <-read.csv('/Users/wei/Library/CloudStorage/GoogleDrive-cc9868422@gmail.com/My Drive/coursera/R programming/rprog_data_ProgAssignment3-data/outcome-of-care-measures.csv')
+  states <-unique(data$State)
+  outcome_disease <-c("heart_attack","heart_failure","pneumonia")
+
+  heart_attack <- data$Hospital.30.Day.Death..Mortality..Rates.from.Heart.Attack
+  heart_failure <- data$Hospital.30.Day.Death..Mortality..Rates.from.Heart.Failure
+  pneumonia <- data$Hospital.30.Day.Death..Mortality..Rates.from.Pneumonia
+  if  (state %in% states& outcome %in% outcome_disease){subset(data, Hospital.Name ,heart_attack,heart_failure,pneumonia)
+  }
+  return
+
+  ## Check that state and outcome are valid
+  ## Return hospital name in that state with lowest 30-day death
+  ## rate
+}
+
