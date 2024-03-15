@@ -64,10 +64,19 @@ rank_pneumonia <- select_df %>% group_by(State) %>%
   arrange(State, Hospital.30.Day.Death..Mortality..Rates.from.Pneumonia) %>% slice(1:5)
 
 rank_heart_attack <- select_df %>% group_by(State) %>%
-  arrange(State, Hospital.30.Day.Death..Mortality..Rates.from.Heart.Attack) %>% slice(1:5)
+  arrange(State, Hospital.30.Day.Death..Mortality..Rates.from.Heart.Attack)
 
 rank_heart_failure <- select_df %>% group_by(State) %>%
   arrange(State, Hospital.30.Day.Death..Mortality..Rates.from.Heart.Failure) %>% slice(1:5)
+
+# find a hospital based on states and the worst heart attack mortality
+# even there is no NA in df but some process might generate NA, so use na.omit
+worst_heart_attack <- na.omit(rank_heart_attack[rank_heart_attack$State == 'MD' & rank_heart_attack$Hospital.30.Day.Death..Mortality..Rates.from.Heart.Attack,])
+worst_heart_attack <- tail(worst_heart_attack,1)
+worst_heart_attack
+
+# find a hospital based on states and the fourth heart failure mortality
+rank_heart_failure[rank_heart_attack$State == 'TX' & rank_heart_attack$Hospital.30.Day.Death..Mortality..Rates.from.Heart.Failure,][4,]
 
 # TODO write a function
 
