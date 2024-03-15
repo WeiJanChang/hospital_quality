@@ -31,7 +31,7 @@ lowest_heart_failure <- lowest_heart_failure[1,]
 
 # lowest mortality in each state
 lowest_heart_failure <- select_df %>% group_by(State) %>%
-  arrange(State, Hospital.30.Day.Death..Mortality..Rates.from.Pneumonia) %>% slice(1)
+  arrange(State, Hospital.30.Day.Death..Mortality..Rates.from.Heart.Failure) %>% slice(1)
 
 lowest_heart_attack <- select_df %>% group_by(State) %>%
   arrange(State, Hospital.30.Day.Death..Mortality..Rates.from.Heart.Attack) %>% slice(1)
@@ -39,6 +39,7 @@ lowest_heart_attack <- select_df %>% group_by(State) %>%
 lowest_pneumonia <- select_df %>% group_by(State) %>%
   arrange(State, Hospital.30.Day.Death..Mortality..Rates.from.Pneumonia) %>% slice(1)
 
+# TODO write a function
 
 best <- function(state, outcome) {
   data <-read.csv('/Users/wei/Library/CloudStorage/GoogleDrive-cc9868422@gmail.com/My Drive/coursera/R programming/rprog_data_ProgAssignment3-data/outcome-of-care-measures.csv')
@@ -57,3 +58,22 @@ best <- function(state, outcome) {
   ## rate
 }
 
+# Ranking hospitals by outcome in a state
+
+rank_pneumonia <- select_df %>% group_by(State) %>%
+  arrange(State, Hospital.30.Day.Death..Mortality..Rates.from.Pneumonia) %>% slice(1:5)
+
+rank_heart_attack <- select_df %>% group_by(State) %>%
+  arrange(State, Hospital.30.Day.Death..Mortality..Rates.from.Heart.Attack) %>% slice(1:5)
+
+rank_heart_failure <- select_df %>% group_by(State) %>%
+  arrange(State, Hospital.30.Day.Death..Mortality..Rates.from.Heart.Failure) %>% slice(1:5)
+
+# TODO write a function
+
+rankhospital <- function(state, outcome, num = "best") {
+  ## Read outcome data
+}
+## Check that state and outcome are valid
+## Return hospital name in that state with the given rank
+## 30-day death rate
