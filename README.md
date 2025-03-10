@@ -27,6 +27,10 @@ Load the hospital data from a CSV file.
 
 Call the best_hospitals function with the desired parameters.
 
+## Data visualisation
+
+![Example 1](figure/bar_chart.png)
+
 # Contact
 
 Wei Jan Chang, weijan.chang@gmail.com
