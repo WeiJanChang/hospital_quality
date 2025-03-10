@@ -25,7 +25,7 @@ This project requires Python and the following dependencies:
 
 Load the hospital data from a CSV file.
 
-Call the best_hospitals function with the desired parameters.
+Call the ``best_hospitals`` function with the desired parameters.
 
 ## Data visualisation
 
