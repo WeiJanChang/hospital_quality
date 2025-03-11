@@ -26,7 +26,9 @@ def best_hospitals(df: pd.DataFrame, state: str, disease: str, rank: int = 3):
 
     # Drop rows with missing mortality values
     state_hospitals = state_hospitals.dropna(subset=[mortality_col])
-
+    # Drop rows with "Not Available" values
+    mask = (state_hospitals[mortality_col] == 'Not Available')
+    state_hospitals = state_hospitals[~mask]
     if state_hospitals.empty:
         print(f"No mortality data available for {disease} in {state}")
         print(f"Please enter a valid State: {df['State'].unique()}")
@@ -34,10 +36,6 @@ def best_hospitals(df: pd.DataFrame, state: str, disease: str, rank: int = 3):
 
     min_mortality = state_hospitals[mortality_col].min()
     best_hospital = state_hospitals[state_hospitals[mortality_col] == min_mortality]
-
-    # best_hospital = df.groupby(["State", "Hospital Name"])[mortality_cols].agg(min).reset_index()
-    # reset index for a df. not aMultiIndex DataFrame.
-    # use .agg can take more action, such as .agg(['min', 'max', 'mean'])
 
     # Sort hospitals by mortality rate for better visualization
     sorted_hospitals = state_hospitals.sort_values(by=mortality_col, ascending=True)
