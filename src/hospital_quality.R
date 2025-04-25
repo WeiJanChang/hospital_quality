@@ -1,6 +1,6 @@
 library(dplyr)
 library(tidyr)
-outcome_care <- read.csv('outcome-of-care-measures.csv')
+outcome_care <- read.csv('~/code/hospital_quality/test_file/outcome-of-care-measures.csv')
 dim(outcome_care) # how many rows and cols
 str(outcome_care) # most common to see the data col, type, and value in cells
 names(outcome_care) # view col names
