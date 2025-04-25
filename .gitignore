@@ -1,6 +1,10 @@
+# Default ignored files
+/shelf/
+/workspace.xml
 # Created by .ignore support plugin (hsz.mobi)
 # experimental data and output
 *.svg
+*.png
 # *.riglog
 *.avi
 *.log
@@ -98,7 +102,6 @@ target/
 
 # Jupyter Notebook
 .ipynb_checkpoints
-**/*.ipynb_checkpoints/
 
 # IPython
 profile_default/
@@ -158,10 +161,10 @@ dmypy.json
 
 # Cython debug symbols
 cython_debug/
-
-*.DS_Store
-
-.idea/
+*.xml
+*.iml
+.DS_Store
 
 # R
+.RData
 .Rhistory
